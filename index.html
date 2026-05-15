@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#0b0a09" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<title>Miguel De Hoyos — Director de Cine</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg: #0b0a09;
+    --bg-2: #100e0c;
+    --ink: #efece6;
+    --ink-dim: #a8a39a;
+    --ink-mute: #6e6960;
+    --rule: #221f1c;
+    --accent: oklch(0.78 0.11 65);  /* warm amber */
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);}
+  body{
+    font-family:"Geist", ui-sans-serif, system-ui, sans-serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#0b0a09}
+
+  /* ——— Type ——— */
+  .serif{font-family:"Instrument Serif", serif; font-weight:400; letter-spacing:-0.01em;}
+  .mono{font-family:"Geist Mono", ui-monospace, monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;}
+
+  h1,h2,h3{font-family:"Instrument Serif", serif; font-weight:400; letter-spacing:-0.015em; line-height:1.02;}
+  p{ text-wrap: pretty; }
+
+  /* ——— Top nav ——— */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px clamp(20px,4vw,48px);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: linear-gradient(to bottom, rgba(11,10,9,0.78), rgba(11,10,9,0.35));
+    border-bottom:1px solid transparent;
+    transition: background .3s ease, border-color .3s ease;
+  }
+  .nav.scrolled{
+    background: rgba(11,10,9,0.88);
+    border-bottom-color: var(--rule);
+  }
+  .nav .mark{font-family:"Instrument Serif", serif; font-size:20px; letter-spacing:-0.01em;}
+  .nav .mark em{font-style:italic; color:var(--ink-dim)}
+  .nav-links{display:flex; gap:28px;}
+  .nav-links a{
+    color:var(--ink-dim); text-decoration:none;
+    font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+    font-family:"Geist Mono", monospace;
+    transition: color .2s ease;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  @media (max-width: 720px){ .nav-links{display:none} }
+
+  /* ——— Language toggle ——— */
+  .lang-toggle{
+    display:inline-flex; align-items:center;
+    border: 1px solid var(--rule);
+    background: rgba(11,10,9,0.55);
+    padding: 0;
+    overflow: hidden;
+    margin-left: 22px;
+  }
+  .lang-toggle button{
+    appearance: none;
+    background: transparent;
+    color: var(--ink-dim);
+    border: 0;
+    padding: 7px 12px;
+    font-family:"Geist Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease;
+  }
+  .lang-toggle button:hover{ color: var(--ink); }
+  .lang-toggle button.active{
+    background: var(--ink);
+    color: var(--bg);
+  }
+  @media (max-width: 720px){
+    .lang-toggle{ margin-left: 0; }
+  }
+
+  /* ——— Hero ——— */
+  .hero{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:0;
+    overflow:hidden;
+    background: #000;
+  }
+  .hero-video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    z-index:0;
+  }
+  .hero-video iframe{
+    position:absolute; top:50%; left:50%;
+    width:max(100%, calc(100vh * 16/9));
+    height:max(100%, calc(100vw * 9/16));
+    transform: translate(-50%,-50%);
+    border:0;
+    pointer-events:auto;
+  }
+  .hero-grad{
+    position:absolute; inset:0; z-index:1;
+    background:
+      linear-gradient(to bottom, rgba(11,10,9,0.55) 0%, rgba(11,10,9,0) 30%, rgba(11,10,9,0) 55%, rgba(11,10,9,0.85) 92%, var(--bg) 100%),
+      linear-gradient(to right, rgba(11,10,9,0.5), rgba(11,10,9,0) 40%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    max-width:var(--maxw);
+    width:100%; margin:0 auto;
+    padding: 0 clamp(20px,4vw,48px) clamp(48px, 7vh, 96px);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--ink-dim);
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent); box-shadow:0 0 0 4px rgba(214,160,90,0.18);}
+  .hero h1{
+    font-size: clamp(56px, 9.4vw, 144px);
+    line-height:0.95;
+    margin-bottom: 22px;
+  }
+  .hero h1 em{ color: var(--ink-dim); font-style: italic; }
+  .hero .tagline{
+    font-family:"Instrument Serif", serif;
+    font-style:italic;
+    font-size: clamp(20px, 2.2vw, 30px);
+    color:var(--ink);
+    max-width: 720px;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+  }
+  .hero-meta{
+    display:flex; gap:48px; flex-wrap:wrap;
+    margin-top:42px;
+    padding-top:22px;
+    border-top:1px solid rgba(239,236,230,0.14);
+    max-width: 720px;
+  }
+  .hero-meta div{ display:flex; flex-direction:column; gap:4px;}
+  .hero-meta .k{color:var(--ink-mute);}
+  .hero-meta .v{color:var(--ink); font-size:14px;}
+
+  .scroll-cue{
+    position:absolute;
+    right: clamp(20px,4vw,48px);
+    bottom: clamp(48px, 7vh, 96px);
+    z-index:3;
+    color:var(--ink-mute);
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    pointer-events:none;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .scroll-cue .line{ width:1px; height:48px; background: linear-gradient(to top, transparent, var(--ink-dim)); animation: cue 2.4s ease-in-out infinite; }
+  @keyframes cue{ 0%,100%{opacity:.3; transform: scaleY(0.6);} 50%{opacity:1; transform: scaleY(1);} }
+
+  /* ——— Sections ——— */
+  section.block{
+    max-width:var(--maxw);
+    margin: 0 auto;
+    padding: clamp(80px, 12vh, 140px) clamp(20px,4vw,48px);
+    position:relative;
+  }
+  .grid-2{
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(28px, 5vw, 80px);
+  }
+  @media (max-width: 820px){ .grid-2{grid-template-columns: 1fr; gap: 22px;} }
+
+  .section-label{
+    color:var(--ink-mute);
+    padding-top:8px;
+    position:relative;
+  }
+  .section-label::before{
+    content:""; display:block; width:36px; height:1px; background:var(--accent); margin-bottom:14px;
+  }
+  .section-num{ color:var(--ink-mute); margin-bottom:6px;}
+
+  .lede{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height:1.15;
+    letter-spacing:-0.015em;
+    color:var(--ink);
+    margin-bottom: 28px;
+  }
+  .lede em{color:var(--accent); font-style:italic;}
+
+  .body p + p{ margin-top: 18px; }
+  .body p{ color: #d6d2ca; max-width: 68ch; }
+
+  h2.section-h{
+    font-size: clamp(38px, 5vw, 64px);
+    margin-bottom: 28px;
+  }
+  h2.section-h em{ font-style: italic; color: var(--ink-dim);}
+
+  /* Divider rule */
+  .rule{
+    max-width:var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(20px,4vw,48px);
+  }
+  .rule .ln{ height:1px; background: var(--rule); }
+
+  /* ——— Collaborators marquee ——— */
+  .collab{
+    background: var(--bg-2);
+    padding: clamp(60px, 9vh, 100px) 0;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    overflow:hidden;
+  }
+  .collab-inner{
+    max-width:var(--maxw); margin:0 auto;
+    padding: 0 clamp(20px,4vw,48px);
+  }
+  .collab-label{ color: var(--ink-mute); margin-bottom: 38px;}
+  .collab-list{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 820px){ .collab-list{grid-template-columns: repeat(2, 1fr);} }
+  .collab-list .name{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height:1.05;
+    color:var(--ink);
+    padding: 24px 16px 24px 0;
+    border-top: 1px solid var(--rule);
+    letter-spacing:-0.01em;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .collab-list .name .who{ display: block;}
+  .collab-list .name .role{
+    display:block;
+    color: var(--accent);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .collab-list .name .project{
+    display:block;
+    font-family:"Instrument Serif", serif;
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 17px;
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+  .collab-list .name .year{
+    display:block;
+    color: var(--ink-mute);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+
+  /* ——— Capability list ——— */
+  .capabilities{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 16px;
+  }
+  .cap{
+    display:grid;
+    grid-template-columns: 64px 1fr;
+    gap: 28px;
+    padding: 26px 0;
+    border-top: 1px solid var(--rule);
+    align-items:flex-start;
+  }
+  .cap:last-child{ border-bottom: 1px solid var(--rule); }
+  .cap .n{
+    color: var(--ink-mute);
+    padding-top: 8px;
+  }
+  .cap .t{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height:1.2;
+    letter-spacing:-0.01em;
+    color: var(--ink);
+  }
+
+  /* ——— Featured reels ——— */
+  .featured{
+    /* full-bleed for maximum visibility */
+    max-width: none;
+    margin: 0;
+    padding: clamp(60px, 8vh, 100px) clamp(20px,3vw,40px) clamp(80px, 12vh, 140px);
+  }
+  .featured-head{
+    max-width: var(--maxw);
+    margin: 0 auto 40px;
+    padding: 0 8px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; flex-wrap:wrap;
+  }
+  .featured-head .title{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(34px, 4.6vw, 56px);
+    line-height:1.02;
+    letter-spacing:-0.015em;
+  }
+  .featured-head .title em{ color: var(--ink-dim); font-style: italic;}
+  .featured-head .meta{ color: var(--ink-mute); }
+
+  .reels{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 1.6vw, 24px);
+  }
+  @media (max-width: 980px){ .reels{ grid-template-columns: 1fr; gap: 18px; } }
+
+  .reel{
+    position:relative;
+    aspect-ratio: 16 / 9;
+    background:#000;
+    border:1px solid var(--rule);
+    overflow:hidden;
+    display:block;
+    text-decoration:none;
+    color: var(--ink);
+    isolation: isolate;
+  }
+  .reel-video{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+  .reel-video iframe{
+    position:absolute; top:50%; left:50%;
+    width: max(100%, calc(100% * 16/9 * 9/16));
+    height:100%;
+    /* zoom to cover for the background param's letterboxing */
+    transform: translate(-50%,-50%) scale(1.02);
+    border:0;
+  }
+  .reel-overlay{
+    position:absolute; inset:0; z-index:2;
+    background:
+      linear-gradient(to top, rgba(11,10,9,0.85) 0%, rgba(11,10,9,0.15) 45%, rgba(11,10,9,0) 65%, rgba(11,10,9,0.35) 100%);
+    padding: clamp(18px, 2.4vw, 28px);
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition: background .35s ease;
+  }
+  .reel:hover .reel-overlay{
+    background:
+      linear-gradient(to top, rgba(11,10,9,0.92) 0%, rgba(11,10,9,0.2) 45%, rgba(11,10,9,0.05) 65%, rgba(11,10,9,0.5) 100%);
+  }
+  .reel-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap: 12px;
+    color: var(--ink);
+  }
+  .reel-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    color: var(--ink);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    background: rgba(11,10,9,0.55);
+    backdrop-filter: blur(8px);
+    padding: 7px 11px;
+    border: 1px solid rgba(239,236,230,0.18);
+  }
+  .reel-tag .live{ width:6px; height:6px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(214,160,90,0.18); animation: pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+  .reel-cta{
+    display:inline-flex; align-items:center; gap: 8px;
+    color: var(--ink);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    background: rgba(11,10,9,0.55);
+    backdrop-filter: blur(8px);
+    padding: 7px 11px;
+    border: 1px solid rgba(239,236,230,0.18);
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .reel:hover .reel-cta{ background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .reel-cta .arrow{ display:inline-block; transition: transform .25s ease;}
+  .reel:hover .reel-cta .arrow{ transform: translate(3px, -3px); }
+
+  .reel-bottom{ display:flex; align-items:flex-end; justify-content:space-between; gap: 18px;}
+  .reel-title{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .reel-title em{ font-style: italic; color: var(--ink-dim); }
+  .reel-meta{
+    color: var(--ink-dim);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .reel::after{
+    /* subtle inner ring */
+    content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    transition: box-shadow .3s ease;
+  }
+  .reel:hover::after{ box-shadow: inset 0 0 0 1px rgba(214,160,90,0.35); }
+
+  /* ——— Closing ——— */
+  .closing{
+    text-align:left;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(80px, 12vh, 140px) clamp(20px,4vw,48px);
+    border-top: 1px solid var(--rule);
+  }
+  .closing .quote{
+    font-family:"Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(32px, 4.4vw, 56px);
+    line-height: 1.15;
+    letter-spacing:-0.015em;
+    max-width: 22ch;
+    color: var(--ink);
+  }
+  .closing .quote span{ color: var(--accent); }
+  .closing .sub{
+    color: var(--ink-mute);
+    margin-top: 22px;
+  }
+
+  /* ——— Contact ——— */
+  .contact{
+    border-top:1px solid var(--rule);
+    background: var(--bg-2);
+  }
+  .contact-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(80px, 12vh, 140px) clamp(20px,4vw,48px);
+  }
+  .contact-head{
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(28px, 5vw, 80px);
+    margin-bottom: 56px;
+  }
+  @media (max-width: 820px){ .contact-head{grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px;} }
+  .contact-head h2{
+    font-size: clamp(40px, 5.4vw, 72px);
+    line-height:1.02;
+  }
+  .contact-head h2 em{ color: var(--ink-dim); font-style: italic;}
+  .contact-head p{
+    color: var(--ink-dim);
+    max-width: 52ch;
+    margin-top: 16px;
+  }
+
+  form.contact-form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 720px){ form.contact-form{grid-template-columns: 1fr;} }
+  .field{
+    position:relative;
+    border-bottom: 1px solid var(--rule);
+    padding: 22px 0 18px;
+  }
+  .field.full{ grid-column: 1 / -1; }
+  .field:nth-child(odd):not(.full){ padding-right: 32px; border-right: 1px solid var(--rule); }
+  .field:nth-child(even):not(.full){ padding-left: 32px; }
+  @media (max-width: 720px){
+    .field:nth-child(odd):not(.full){ padding-right: 0; border-right: 0;}
+    .field:nth-child(even):not(.full){ padding-left: 0;}
+  }
+  .field label{
+    display:block;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+    font-family:"Geist Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .field input,
+  .field select,
+  .field textarea{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--ink);
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    padding: 6px 0;
+    resize: vertical;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder{
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+  .field select{
+    -webkit-appearance:none;
+    appearance:none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--ink-dim) 50%), linear-gradient(135deg, var(--ink-dim) 50%, transparent 50%);
+    background-position: calc(100% - 14px) 22px, calc(100% - 8px) 22px;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 32px;
+  }
+  .field select option{ background: var(--bg-2); color: var(--ink); font-family: "Geist", sans-serif; font-size: 14px;}
+  .field textarea{
+    min-height: 120px;
+    font-family:"Geist", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+  .field-row-bar{
+    position:absolute; left:0; right:0; bottom:-1px; height:1px;
+    background: var(--accent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .35s ease;
+  }
+  .field:nth-child(even):not(.full) .field-row-bar{ left: 32px; }
+  .field:focus-within .field-row-bar{ transform: scaleX(1);}
+
+  .form-actions{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  .form-note{ color: var(--ink-mute); max-width: 50ch; }
+  .submit{
+    display:inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--ink);
+    color: var(--bg);
+    border: 0;
+    padding: 18px 26px;
+    font-family:"Geist Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, transform .25s ease;
+  }
+  .submit:hover{ background: var(--accent); color: var(--bg); }
+  .submit:active{ transform: translateY(1px); }
+  .submit .arrow{ display:inline-block; transition: transform .25s ease;}
+  .submit:hover .arrow{ transform: translateX(4px);}
+
+  .form-success{
+    display:none;
+    border: 1px solid var(--rule);
+    padding: 28px;
+    margin-top: 24px;
+    color: var(--ink-dim);
+  }
+  .form-success.show{ display:block; }
+  .form-success strong{ color: var(--ink); font-family:"Instrument Serif", serif; font-weight: 400; font-size: 22px; display:block; margin-bottom: 6px;}
+
+  /* ——— Footer ——— */
+  footer{
+    border-top:1px solid var(--rule);
+    padding: 36px clamp(20px,4vw,48px);
+    display:flex; justify-content:space-between; align-items:center;
+    gap:18px; flex-wrap:wrap;
+    color: var(--ink-mute);
+  }
+  footer .name{ font-family:"Instrument Serif", serif; font-size:18px; color:var(--ink); letter-spacing:-0.01em;}
+  footer a{ color: var(--ink-dim); text-decoration:none; transition: color .2s;}
+  footer a:hover{ color: var(--ink);}
+  footer .links{ display:flex; gap:22px;}
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform: translateY(14px); transition: opacity .9s ease, transform .9s ease;}
+  .reveal.in{ opacity:1; transform: none; }
+
+  /* ——— Disciplines ——— */
+  .disciplines{
+    margin: 44px 0 56px;
+    border-top: 1px solid var(--rule);
+  }
+  .disc{
+    display:grid;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    transition: padding-left .3s ease;
+  }
+  .disc:hover{ padding-left: 10px; }
+  .disc-n{
+    color: var(--accent);
+    padding-top: 4px;
+  }
+  .disc-body{ display:flex; flex-direction:column; gap: 6px;}
+  .disc-title{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .disc-desc{
+    color: #c6c2b9;
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 62ch;
+  }
+
+  /* ——— CV reveal ——— */
+  .cv-section{
+    border-top: 1px solid var(--rule);
+    background: var(--bg);
+  }
+  .cv-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(80px, 12vh, 140px) clamp(20px,4vw,48px);
+  }
+  .cv-head{
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(28px, 5vw, 80px);
+    margin-bottom: 36px;
+  }
+  @media (max-width: 820px){ .cv-head{grid-template-columns: 1fr; gap: 16px;} }
+  .cv-head h2{
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.02;
+  }
+  .cv-head h2 em{ color: var(--ink-dim); font-style: italic;}
+  .cv-head p{ color: var(--ink-dim); max-width: 60ch; margin-top: 14px;}
+
+  .cv-toggle{
+    appearance: none;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink-dim);
+    padding: 16px 24px;
+    font-family:"Geist Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+    margin-top: 8px;
+  }
+  .cv-toggle:hover{ background: var(--ink); color: var(--bg); border-color: var(--ink);}
+  .cv-toggle .chev{
+    display:inline-block;
+    width: 8px; height: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .3s ease;
+    margin-bottom: 3px;
+  }
+  .cv-toggle.open .chev{ transform: rotate(-135deg); margin-bottom: -3px; }
+
+  .cv-body{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .6s cubic-bezier(.2,.7,.2,1);
+    overflow: hidden;
+  }
+  .cv-body.open{ grid-template-rows: 1fr; }
+  .cv-body > div{ min-height: 0; }
+  .cv-content{
+    padding-top: 56px;
+    border-top: 1px solid var(--rule);
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: clamp(28px, 5vw, 80px);
+    row-gap: 56px;
+  }
+  @media (max-width: 820px){
+    .cv-content{ grid-template-columns: 1fr; gap: 16px; row-gap: 40px;}
+  }
+  .cv-content .label{
+    font-family:"Geist Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding-top: 4px;
+  }
+  .cv-content .label::before{
+    content:""; display:block; width: 24px; height: 1px; background: var(--accent); margin-bottom: 10px;
+  }
+  .cv-block{ color: #d6d2ca; line-height: 1.6;}
+  .cv-block + .cv-block{ margin-top: 0;}
+
+  .cv-job{ margin-bottom: 28px;}
+  .cv-job:last-child{ margin-bottom: 0;}
+  .cv-job-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap: 16px; flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .cv-job-title{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .cv-job-year{
+    color: var(--ink-mute);
+    font-family:"Geist Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .cv-job-org{ color: var(--ink-dim); font-style: italic; font-family:"Instrument Serif", serif; font-size: 18px; margin-bottom: 10px;}
+  .cv-job-desc{ font-size: 14.5px; max-width: 70ch; color: #b9b4ab;}
+
+  .cv-credits{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 32px;
+  }
+  @media (max-width: 520px){ .cv-credits{ grid-template-columns: 1fr; } }
+  .cv-credit{
+    display:flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .cv-credit .y{ color: var(--ink-mute); font-family:"Geist Mono", monospace; font-size: 11px; letter-spacing: 0.15em;}
+
+  .cv-skill-group{ margin-bottom: 22px;}
+  .cv-skill-group:last-child{ margin-bottom: 0;}
+  .cv-skill-label{
+    color: var(--accent);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .cv-skill-list{ color: #d6d2ca; font-size: 14.5px; line-height: 1.55;}
+
+  .cv-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2px;
+  }
+  .cv-links a{
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 8px 12px;
+    font-family:"Geist Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background .25s ease, border-color .25s ease, color .25s ease;
+  }
+  .cv-links a:hover{ background: var(--accent); border-color: var(--accent); color: var(--bg);}
+  .cv-links a .arrow{ margin-left: 6px; display:inline-block;}
+  .cv-links a:hover .arrow{ transform: translate(2px,-2px);}
+
+
+  .supervised-projects-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .supervised-project{
+    cursor: fullscreen;
+  }
+  .supervised-project .reel-video{
+    pointer-events: none;
+  }
+  .supervised-project .reel-overlay{
+    justify-content: flex-start;
+    padding: clamp(14px, 1.6vw, 22px);
+    background:
+      linear-gradient(to bottom, rgba(11,10,9,0.72) 0%, rgba(11,10,9,0.18) 32%, rgba(11,10,9,0) 62%);
+    pointer-events: none;
+  }
+  .supervised-project:hover .reel-overlay{
+    background:
+      linear-gradient(to bottom, rgba(11,10,9,0.82) 0%, rgba(11,10,9,0.24) 32%, rgba(11,10,9,0.04) 62%);
+  }
+  .supervised-project .reel-top,
+  .supervised-project .reel-meta{
+    display: none;
+  }
+  .supervised-project .reel-bottom{
+    display: block;
+  }
+  .supervised-project .reel-title{
+    display: inline-block;
+    font-size: clamp(22px, 2.2vw, 34px);
+    line-height: 1;
+    color: var(--ink);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.65);
+  }
+  .supervised-project:fullscreen{
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+    border: 0;
+    background: #000;
+  }
+  .supervised-project:fullscreen .reel-video iframe{
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%,-50%);
+  }
+  .supervised-project:fullscreen .reel-overlay{
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  @media (max-width: 980px){ .supervised-projects-grid{ grid-template-columns: 1fr; } }
+
+
+  .supervised-project .project-thumb{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:#000 center / cover no-repeat;
+    transform: scale(1.02);
+  }
+  .supervised-project .project-thumb::after{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.08), rgba(0,0,0,0.35));
+  }
+  .supervised-project .project-thumb-fallback{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    color:var(--ink-mute);
+    font-family:"Geist Mono", monospace;
+    font-size:10px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    text-align:center;
+    background: linear-gradient(135deg, #100e0c, #050505);
+  }
+  .supervised-project.is-mobile-video .reel-video iframe{
+    width:100%; height:100%;
+    transform: translate(-50%,-50%);
+  }
+
+  /* ——— Contact info bar ——— */
+  .contact-info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 56px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (max-width: 720px){ .contact-info{grid-template-columns: 1fr;} }
+  .ci{
+    padding: 28px 28px 28px 0;
+    border-right: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .ci:last-child{ border-right: 0; padding-right: 0;}
+  @media (max-width: 720px){
+    .ci{ border-right: 0; border-bottom: 1px solid var(--rule); padding: 22px 0;}
+    .ci:last-child{ border-bottom: 0;}
+  }
+  .ci .k{
+    color: var(--ink-mute);
+    font-family:"Geist Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .ci .v{
+    font-family:"Instrument Serif", serif;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .ci a{
+    color: var(--ink);
+    text-decoration: none;
+    transition: color .2s ease;
+  }
+  .ci a:hover{ color: var(--accent); }
+
+  /* ——— Mobile refinements ——— */
+  @media (max-width: 720px){
+    body{ font-size: 16px; line-height: 1.6; }
+
+    /* Nav */
+    .nav{ padding: 16px 18px; }
+    .nav .mark{ font-size: 18px; }
+
+    /* Hero — let it grow with viewport, not lock at 100vh which can clip on mobile chrome */
+    .hero{ min-height: 92svh; min-height: 92vh; }
+    .hero-inner{ padding: 0 18px clamp(36px, 8vh, 64px); }
+    .hero h1{ font-size: clamp(48px, 16vw, 80px); margin-bottom: 16px; }
+    .hero .tagline{ font-size: 20px; line-height: 1.25; }
+    .eyebrow{ margin-bottom: 18px; font-size: 10px; }
+    .hero-meta{
+      gap: 18px 28px;
+      margin-top: 28px;
+      padding-top: 18px;
+    }
+    .hero-meta div{ flex: 1 1 45%; min-width: 0; }
+    .hero-meta .v{ font-size: 13px; }
+    .scroll-cue{ display: none; }
+
+    /* Section padding */
+    section.block{ padding: 64px 18px; }
+    .featured{ padding: 56px 14px 80px; }
+    .featured-head{ margin-bottom: 24px; padding: 0 4px; }
+    .featured-head .title{ font-size: 36px; }
+    .closing{ padding: 72px 18px; }
+    .closing .quote{ font-size: 34px; max-width: none; }
+
+    /* About */
+    .lede{ font-size: 26px; margin-bottom: 20px;}
+    .body p{ max-width: none; }
+
+    /* Section label */
+    .section-label{ padding-top: 0; }
+    .section-label::before{ margin-bottom: 10px; }
+
+    /* Collaborators */
+    .collab{ padding: 56px 0; }
+    .collab-inner{ padding: 0 18px; }
+    .collab-label{ margin-bottom: 24px; }
+    .collab-list{ grid-template-columns: 1fr 1fr; }
+    .collab-list .name{ font-size: 20px; padding: 16px 8px 16px 0; }
+    .collab-list .name span{ font-size: 9px; }
+
+    /* Approach */
+    h2.section-h{ font-size: 34px; margin-bottom: 20px; }
+    .cap{ grid-template-columns: 40px 1fr; gap: 14px; padding: 20px 0; }
+    .cap .n{ padding-top: 6px; }
+    .cap .t{ font-size: 20px; }
+
+    /* Reels */
+    .reels{ gap: 14px; }
+    .reel-overlay{ padding: 16px; }
+    .reel-title{ font-size: 20px; }
+    .reel-tag, .reel-cta{ font-size: 9px; padding: 6px 9px; }
+    .reel-meta{ font-size: 9px; }
+
+    /* Contact */
+    .contact-inner{ padding: 72px 18px; }
+    .contact-head{ margin-bottom: 32px; }
+    .contact-head h2{ font-size: 36px; }
+    .field{ padding: 18px 0 14px; }
+    .field input, .field select{ font-size: 20px; }
+    .field textarea{ font-size: 16px; min-height: 100px; }
+    .form-actions{ margin-top: 24px; }
+    .submit{ width: 100%; justify-content: center; padding: 16px; }
+
+    /* Footer */
+    footer{ padding: 24px 18px; flex-direction: column; align-items: flex-start; gap: 14px;}
+    footer .links{ flex-wrap: wrap; gap: 18px; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 380px){
+    .hero h1{ font-size: 44px; }
+    .collab-list{ grid-template-columns: 1fr; }
+    .hero-meta{ flex-direction: column; gap: 14px; }
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal{ opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+<div class="mark">Miguel <em>De Hoyos</em></div>
+<div style="display:flex; align-items:center;">
+<div class="nav-links">
+<a data-en="About" href="#about">Perfil</a>
+<a data-en="Approach" href="#approach">Enfoque</a>
+<a data-en="Work" href="#reel">Obra</a>
+<a data-en="CV" href="#cv">CV</a>
+<a data-en="Contact" href="#contact-form">Contacto</a>
+</div>
+<div aria-label="Language" class="lang-toggle" role="group">
+<button class="active" data-lang="es" type="button">ES</button>
+<button data-lang="en" type="button">EN</button>
+</div>
+</div>
+</nav>
+<!-- ——— HERO ——— -->
+<header class="hero" id="top">
+<div aria-hidden="true" class="hero-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" frameborder="0" playsinline="" src="https://player.vimeo.com/video/1181113708?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;playsinline=1&amp;dnt=1" title="Miguel De Hoyos — Reel"></iframe>
+</div>
+<div class="hero-grad"></div>
+<div class="hero-inner">
+<div class="eyebrow mono"><span class="dot"></span><span data-en="Film Director · Visual Artist">Director de Cine · Artista Visual</span></div>
+<h1 class="serif">Miguel <em>De Hoyos</em></h1>
+<p class="tagline" data-en="At the intersection of structure and emotion.">En la intersección de la estructura y la emoción.</p>
+<div class="hero-meta mono">
+<div><span class="k" data-en="Base">Base</span><span class="v" data-en="Mexico City">Ciudad de México</span></div>
+<div><span class="k" data-en="Experience">Trayectoria</span><span class="v" data-en="15+ years">15+ años</span></div>
+<div><span class="k" data-en="Disciplines">Disciplinas</span><span class="v" data-en="Directing · VFX · AI · Unreal">Dirección · VFX · IA · Unreal</span></div>
+</div>
+</div>
+<div class="scroll-cue mono">
+<span data-en="Scroll">Scroll</span>
+<span class="line"></span>
+</div>
+</header>
+<!-- ——— ABOUT ——— -->
+<section class="block reveal" id="about">
+<div class="grid-2">
+<div class="section-label mono">
+<div class="section-num" data-en="01 — Profile">01 — Perfil</div>
+<div data-en="Director · Visual Artist">Director · Visual Artist</div>
+</div>
+<div>
+<p class="lede" data-en-html="A vision born from a deep understanding of how an image is built &lt;em&gt;from its foundations.&lt;/em&gt;">Una mirada que nace de una comprensión profunda de cómo se construye una imagen <em>desde sus cimientos</em>.</p>
+<div class="body">
+<p data-en="With over fifteen years of experience in the industry, Miguel De Hoyos is a Mexican film director whose work sits exactly at the border between emotion and visual architecture.">Con más de quince años de trayectoria en la industria, Miguel De Hoyos es un director de cine mexicano cuyo trabajo se sitúa exactamente en la frontera entre la emoción y la arquitectura visual.</p>
+<p data-en="Backed by a solid record in VFX, Virtual Production and cinematic postproduction, Miguel doesn’t only direct performance and narrative: he designs workflows where technology is subordinated to meaning.">Al contar con un sólido historial en VFX, Producción Virtual y postproducción cinematográfica, Miguel no solo dirige la interpretación y la narrativa: diseña flujos de trabajo donde la tecnología se subordina al significado.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="rule"><div class="ln"></div></div>
+<!-- ——— COLLABORATORS ——— -->
+<section class="collab reveal">
+<div class="collab-inner">
+<div class="collab-label mono" data-en="02 — Experience forged at the core of cinema">02 — Experiencia forjada en el núcleo del cine</div>
+<div class="collab-list">
+<div class="name">
+<span class="who">Alfonso Cuarón</span>
+<span class="role">On-Set VFX Supervisor</span>
+<span class="project">Roma</span>
+<span class="year">2018</span>
+</div>
+<div class="name">
+<span class="who">Alejandro G. Iñárritu</span>
+<span class="role">Compositing Previs</span>
+<span class="project">Bardo</span>
+<span class="year">2022</span>
+</div>
+<div class="name">
+<span class="who">Michel Franco</span>
+<span class="role">VFX Compositing</span>
+<span class="project">Memory</span>
+<span class="year">2023</span>
+</div>
+<div class="name">
+<span class="who">Tatiana Huezo</span>
+<span class="role">On-Set VFX Sup</span>
+<span class="project">Noche de Fuego</span>
+<span class="year">2021</span>
+</div>
+<div class="name">
+<span class="who">Amat Escalante</span>
+<span class="role">VFX Compositing Supervisor</span>
+<span class="project">Perdidos en la Noche</span>
+<span class="year">2023</span>
+</div>
+<div class="name">
+<span class="who">Celso García</span>
+<span class="role">On-Set VFX Sup + Compositing</span>
+<span class="project">La Delgada Línea Amarilla · La Gran Seducción</span>
+<span class="year">2016 · 2020</span>
+</div>
+</div>
+<p class="body" data-en="His approach blends technical precision with a sensibility that favors the organic over empty spectacle." style="margin-top:38px; max-width:62ch;">Su enfoque combina precisión técnica con una sensibilidad que privilegia lo orgánico por encima del espectáculo vacío.</p>
+</div>
+</section>
+<!-- ——— APPROACH ——— -->
+<section class="block reveal" id="approach">
+<div class="grid-2">
+<div class="section-label mono">
+<div class="section-num" data-en="03 — Approach">03 — Enfoque</div>
+<div data-en="Hybrid Workflows · 100% AI">Workflows Híbridos · 100% IA</div>
+</div>
+<div>
+<h2 class="section-h" data-en-html="Innovation for brands: &lt;em&gt;five disciplines, one rigor.&lt;/em&gt;">Innovación para marcas: <em>cinco disciplinas, un mismo rigor.</em></h2>
+<div class="body">
+<p data-en="Miguel’s deep understanding of how light and space are built lets him stay one step ahead in the advertising and commercial industry. Today he designs and implements hybrid workflows — Live Action combined with AI — or productions fully generated with Artificial Intelligence to solve the most demanding needs of his clients.">El profundo entendimiento de Miguel sobre cómo se construye la luz y el espacio le permite ir un paso adelante en la industria comercial y publicitaria. Hoy, diseña e implementa flujos de trabajo híbridos —Live Action combinado con IA— o producciones íntegramente generadas con Inteligencia Artificial para resolver las necesidades más exigentes de sus clientes.</p>
+<p data-en="His real competitive edge lies in postproduction: Miguel doesn’t deliver mere “AI images,” but finished cinematic pieces. Applying his technical rigor in VFX, image composition and color grading, he takes generative outputs and processes them for striking realism. He gives synthetic material optical-lens imperfections, organic textures and physically correct lighting, making it photorealistic and indistinguishable.">Su verdadera ventaja competitiva radica en la postproducción: Miguel no entrega simples "imágenes de IA", sino piezas cinematográficas acabadas. Al aplicar su rigor técnico en VFX, composición de imagen y etalonaje, toma los outputs generativos y los procesa para lograr un realismo contundente. Dota al material sintético de imperfecciones de lente óptico, texturas orgánicas e iluminación físicamente correcta, volviéndolo fotorealista e indistinguible.</p>
+</div>
+<div class="disciplines">
+<div class="disc">
+<div class="disc-n mono">01</div>
+<div class="disc-body">
+<div class="disc-title" data-en="Live Action">Live Action</div>
+<div class="disc-desc" data-en="Traditional shoot. Actor and cinematography direction with cinematic sensibility.">Rodaje tradicional. Dirección de actores y de fotografía con sensibilidad cinematográfica.</div>
+</div>
+</div>
+<div class="disc">
+<div class="disc-n mono">02</div>
+<div class="disc-body">
+<div class="disc-title" data-en="VFX">VFX</div>
+<div class="disc-desc" data-en="On-Set VFX Supervision, compositing, plate methodology, 2D/3D integration, look development.">On-Set VFX Supervision, compositing, plate methodology, integración 2D/3D, look development.</div>
+</div>
+</div>
+<div class="disc">
+<div class="disc-n mono">03</div>
+<div class="disc-body">
+<div class="disc-title" data-en="AI">AI</div>
+<div class="disc-desc" data-en="ComfyUI, Kling, diffusion pipelines, AI-supported VFX, n8n automation, LLM workflows.">ComfyUI, Kling, diffusion pipelines, AI-supported VFX, automatización n8n, LLM workflows.</div>
+</div>
+</div>
+<div class="disc">
+<div class="disc-n mono">04</div>
+<div class="disc-body">
+<div class="disc-title" data-en="Hybrid">Hybrid</div>
+<div class="disc-desc" data-en="Live Action + AI. Photorealistic integration between real plates and synthetic material.">Live Action + IA. Integración fotorealista entre placas reales y material sintético.</div>
+</div>
+</div>
+<div class="disc">
+<div class="disc-n mono">05</div>
+<div class="disc-body">
+<div class="disc-title" data-en="Virtual Production">Virtual Production</div>
+<div class="disc-desc" data-en="LED-Volume workflows, Unreal Engine, camera tracking, mocap calibration, photogrammetry.">LED-Volume workflows, Unreal Engine, camera tracking, mocap calibration, photogrammetry.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ——— FEATURED REELS ——— -->
+<section class="featured reveal" id="reel">
+<div class="featured-head">
+<div>
+<div class="mono" data-en="04 — Selected work" style="color:var(--ink-mute); margin-bottom:14px;">04 — Obra seleccionada</div>
+<h2 class="title" data-en-html="Featured &lt;em&gt;reels&lt;/em&gt;">Reels <em>destacados</em></h2>
+</div>
+<div class="meta mono" data-en="100% AI · Directing · VFX · Color">100% IA · Dirección · VFX · Color</div>
+</div>
+<div class="reels">
+<a aria-label="Ver Commercial Style en Vimeo" class="reel" href="https://vimeo.com/1181113708" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" loading="lazy" src="https://player.vimeo.com/video/1181113708?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;playsinline=1&amp;dnt=1" title="Commercial Style"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Reel I · Playing">Reel I · En reproducción</span></span>
+<span class="reel-cta"><span data-en="Watch on Vimeo">Ver en Vimeo</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title" data-en-html="Commercial &lt;em&gt;Style&lt;/em&gt;">Commercial <em>Style</em></div>
+<div class="reel-meta" data-en-html="100% AI&lt;br/&gt;2026">100% IA<br/>2026</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Open Style en Vimeo" class="reel" href="https://vimeo.com/1166172012" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" loading="lazy" src="https://player.vimeo.com/video/1166172012?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;playsinline=1&amp;dnt=1" title="Open Style"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Reel II · Playing">Reel II · En reproducción</span></span>
+<span class="reel-cta"><span data-en="Watch on Vimeo">Ver en Vimeo</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title" data-en-html="Open &lt;em&gt;Style&lt;/em&gt;">Open <em>Style</em></div>
+<div class="reel-meta" data-en-html="100% AI&lt;br/&gt;2026">100% IA<br/>2026</div>
+</div>
+</div>
+</a>
+</div>
+</section>
+<!-- ——— CLOSING ——— -->
+<section class="closing reveal" id="contact">
+<div class="mono" data-en="05 — Philosophy" style="color:var(--ink-mute); margin-bottom:22px;">05 — Filosofía</div>
+<p class="quote" data-en-html="He doesn’t operate the technology. He &lt;span&gt;directs it with intention.&lt;/span&gt;">No opera la tecnología. La <span>dirige con intención.</span></p>
+<p class="sub" data-en="From the initial idea to the final frame, every story demands its own form — and every form, discipline.">Desde la idea inicial hasta el cuadro final, cada historia exige su propia forma — y cada forma, disciplina.</p>
+</section>
+<!-- ——— CV REVEAL ——— -->
+<section class="cv-section reveal" id="cv">
+<div class="cv-inner">
+<div class="cv-head">
+<div class="mono" data-en="06 — Technical description" style="color:var(--ink-mute); padding-top:8px;">06 — Descripción técnica</div>
+<div>
+<h2 class="serif" data-en-html="Film director, &lt;em&gt;VFX supervisor and Virtual Production TD&lt;/em&gt; with 15+ years bridging creative intent and technical methodology.">Director de cine, supervisor de <em>VFX y Virtual Production TD</em> con más de 15 años puente entre intención creativa y metodología técnica.</h2>
+<p data-en="Known for translating creative intent into executable technical methodology: visual planning, LED-volume workflows, photogrammetry, vendor coordination, compositing and final-frame integrity. Today, applied AI work as production output — generative image and video pipelines, AI-supported VFX, automation and cinematic R&amp;D.">Conocido por traducir intención creativa en metodología técnica ejecutable: planeación visual, LED-volume workflows, fotogrametría, coordinación de vendors, compositing e integridad de cuadro final. Hoy, trabajo aplicado en IA como output de producción — pipelines de imagen y video generativos, VFX asistido por IA, automatización y R&amp;D cinematográfico.</p>
+<button aria-controls="cv-body" aria-expanded="false" class="cv-toggle" id="cv-toggle">
+<span class="cv-toggle-label" data-en="View full CV">Ver CV completo</span>
+<span aria-hidden="true" class="chev"></span>
+</button>
+</div>
+</div>
+<div aria-hidden="true" class="cv-body" id="cv-body">
+<div>
+<div class="cv-content">
+<div class="label" data-en="Contact">Contacto</div>
+<div>
+<div class="cv-links">
+<a href="/cdn-cgi/l/email-protection#0964606e7c6c656d6c61496e64686065276a6664"><span class="__cf_email__" data-cfemail="8ee3e7e9fbebe2eaebe6cee9e3efe7e2a0ede1e3">[email protected]</span> <span class="arrow">↗</span></a>
+<a href="tel:+525540651999">+52 55 4065 1999 <span class="arrow">↗</span></a>
+<a href="https://imdb.com/name/nm4874594" rel="noopener" target="_blank">IMDb <span class="arrow">↗</span></a>
+<a href="https://vimeo.com/996029865" rel="noopener" target="_blank">Vimeo Reel <span class="arrow">↗</span></a>
+<a href="https://maps.google.com/?q=Mexico+City" rel="noopener" target="_blank">Mexico City, MX <span class="arrow">↗</span></a>
+</div>
+</div>
+<div class="label" data-en="Experience">Experiencia</div>
+<div>
+<div class="cv-job">
+<div class="cv-job-head">
+<div class="cv-job-title">Virtual Production Technical Director</div>
+<div class="cv-job-year">2024 — 2025</div>
+</div>
+<div class="cv-job-org">Simplemente · Mexico City</div>
+<div class="cv-job-desc">Translate director, DP and production needs into practical LED-volume, environment and camera-system setups built around the story. Support VP planning, mocap calibration, photogrammetry, camera tracking, Unreal workflows and on-set troubleshooting.</div>
+</div>
+<div class="cv-job">
+<div class="cv-job-head">
+<div class="cv-job-title">On-Set VFX Supervisor — Freelance</div>
+<div class="cv-job-year">2013 — Now</div>
+</div>
+<div class="cv-job-org">Feature films, streaming and premium commercial</div>
+<div class="cv-job-desc">Supervise VFX methodology from prep through shoot and final delivery. Scope includes plate strategy, tracking-marker methodology, HDRI/reference capture, vendor coordination, post handoff and protection of final-frame quality.</div>
+</div>
+<div class="cv-job">
+<div class="cv-job-head">
+<div class="cv-job-title">Senior Compositor / VFX Supervisor</div>
+<div class="cv-job-year">2010 — 2020</div>
+</div>
+<div class="cv-job-org">Boxel · Cinema Máquina · Sisimica · Dinamita · Prime · Oxido · Ollin · EpicsFX</div>
+<div class="cv-job-desc">Progressed from 2D / 3D compositor to senior compositor, compositing supervisor and VFX supervisor across feature and television work. Credits include House of Cards, Jumanji, After Earth, 2 Guns, Cantinflas, Fetih 1453, Roma, Noche de Fuego, Bardo, Memory and Perdidos en la Noche.</div>
+</div>
+</div>
+<div class="label">Selected Credits</div>
+<div>
+<div class="cv-credits">
+<div class="cv-credit"><span>Memory</span><span class="y">2024</span></div>
+<div class="cv-credit"><span>The Iron Orchard</span><span class="y">2017</span></div>
+<div class="cv-credit"><span>Perdidos en la Noche</span><span class="y">2023</span></div>
+<div class="cv-credit"><span>Jumanji</span><span class="y">2017</span></div>
+<div class="cv-credit"><span>Bardo</span><span class="y">2022</span></div>
+<div class="cv-credit"><span>La Delgada Línea Amarilla</span><span class="y">2016</span></div>
+<div class="cv-credit"><span>Noche de Fuego</span><span class="y">2021</span></div>
+<div class="cv-credit"><span>Cantinflas</span><span class="y">2014</span></div>
+<div class="cv-credit"><span>Blue Miracle</span><span class="y">2021</span></div>
+<div class="cv-credit"><span>House of Cards</span><span class="y">2013</span></div>
+<div class="cv-credit"><span>La Gran Seducción</span><span class="y">2020</span></div>
+<div class="cv-credit"><span>After Earth</span><span class="y">2013</span></div>
+<div class="cv-credit"><span>Monarca</span><span class="y">2019</span></div>
+<div class="cv-credit"><span>2 Guns</span><span class="y">2013</span></div>
+<div class="cv-credit"><span>Roma</span><span class="y">2018</span></div>
+<div class="cv-credit"><span>Fetih 1453</span><span class="y">2012</span></div>
+</div>
+</div>
+<div class="label">Directing — Selected</div>
+<div>
+<div class="cv-job">
+<div class="cv-job-head"><div class="cv-job-title">Elefangs — Monster</div><div class="cv-job-year">2019</div></div>
+<div class="cv-job-org">Music video</div>
+<div class="cv-job-desc">Dirección, edición, color, VFX.</div>
+</div>
+<div class="cv-job">
+<div class="cv-job-head"><div class="cv-job-title">Carmen María — Toloache</div><div class="cv-job-year">2019</div></div>
+<div class="cv-job-org">Music video</div>
+<div class="cv-job-desc">Dirección cinematográfica conceptual.</div>
+</div>
+<div class="cv-job">
+<div class="cv-job-head"><div class="cv-job-title">¿Otra vez Juan?</div><div class="cv-job-year">2020</div></div>
+<div class="cv-job-org">Cortometraje</div>
+<div class="cv-job-desc">Comedia oscura / teatro del absurdo.</div>
+</div>
+<div class="cv-job">
+<div class="cv-job-head"><div class="cv-job-title">We / Nosotros</div><div class="cv-job-year">2020</div></div>
+<div class="cv-job-org">Cortometraje</div>
+<div class="cv-job-desc">Dirección a distancia.</div>
+</div>
+</div>
+<div class="label">Awards</div>
+<div>
+<div class="cv-job">
+<div class="cv-job-head"><div class="cv-job-title">Ariel Award Nominee — Best Visual Effects</div><div class="cv-job-year">2021</div></div>
+<div class="cv-job-org">Noche de Fuego, dir. Tatiana Huezo</div>
+</div>
+<div class="cv-job">
+<div class="cv-job-head"><div class="cv-job-title">Ariel Award Nominee — Best Visual Effects</div><div class="cv-job-year">2016</div></div>
+<div class="cv-job-org">La Delgada Línea Amarilla, dir. Celso García</div>
+</div>
+</div>
+<div class="label">Skills</div>
+<div>
+<div class="cv-skill-group">
+<div class="cv-skill-label">Editing / Post</div>
+<div class="cv-skill-list">Editing, Finishing, Color Workflows, Post Supervision, Delivery Coordination, DaVinci Resolve, Premiere Pro, Photoshop, Nuke Studio.</div>
+</div>
+<div class="cv-skill-group">
+<div class="cv-skill-label">VFX / Compositing</div>
+<div class="cv-skill-list">Compositing, On-Set VFX Supervision, Plate Methodology, 2D/3D Integration, Look Development, Cleanup, Reconstruction, Nuke, After Effects.</div>
+</div>
+<div class="cv-skill-group">
+<div class="cv-skill-label">Virtual Production</div>
+<div class="cv-skill-list">LED-Volume Workflows, Unreal Engine, Camera Tracking, Mocap Calibration, Real-Time Production Support, Photogrammetry.</div>
+</div>
+<div class="cv-skill-group">
+<div class="cv-skill-label">3D / Render</div>
+<div class="cv-skill-list">3ds Max, Blender, V-Ray, Arnold, TyFlow, SpeedTree, Terragen, Rendering, Environment Reference Capture.</div>
+</div>
+<div class="cv-skill-group">
+<div class="cv-skill-label">Pipeline / Tech</div>
+<div class="cv-skill-list">Pipeline Development, Workflow Design, R&amp;D, Technical Breakdowns, Vendor Coordination, Ftrack, Asset Handoff.</div>
+</div>
+<div class="cv-skill-group">
+<div class="cv-skill-label">AI / Automation</div>
+<div class="cv-skill-list">ComfyUI, Kling, Diffusion Pipelines, AI-Supported VFX, Local LLM Workflows, AI-Assisted Coding, n8n, Interactive Systems.</div>
+</div>
+</div>
+<div class="label">Languages</div>
+<div>
+<div class="cv-credit"><span>Spanish</span><span class="y">Native</span></div>
+<div class="cv-credit" style="border-bottom:0;"><span>English</span><span class="y">Fluent / Technical</span></div>
+</div>
+<div class="label">Production Intelligence</div>
+<div>
+<div class="cv-block" style="font-size:15px;">
+              Systems thinking for complex visual problems. Ability to translate creative intent into executable technical methodology. Strong communication between directors, DPs, production, vendors and post teams. Calm on-set problem solving under time pressure. High sensitivity to visual continuity, emotional tone and final-frame integrity. Fast adaptation to emerging tools when they create practical production value.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ——— SUPERVISED PROJECTS REVEAL ——— -->
+<section class="cv-section reveal" id="supervised-projects">
+<div class="cv-inner">
+<div class="cv-head">
+<div class="mono" data-en="07 — Supervised Projects" style="color:var(--ink-mute); padding-top:8px;">07 — Proyectos supervisados</div>
+<div>
+<h2 class="serif" data-en-html="Supervised &lt;em&gt;projects&lt;/em&gt;">Proyectos <em>supervisados</em></h2>
+<p data-en="Selected supervised projects — not a complete filmography.">Proyectos supervisados seleccionados — no es una filmografía completa.</p>
+<button aria-controls="projects-body" aria-expanded="false" class="cv-toggle" id="projects-toggle">
+<span class="cv-toggle-label" data-closed-en="View supervised projects" data-closed-es="Ver proyectos supervisados" data-en="View supervised projects" data-open-en="Close supervised projects" data-open-es="Cerrar proyectos supervisados">Ver proyectos supervisados</span>
+<span aria-hidden="true" class="chev"></span>
+</button>
+</div>
+</div>
+<div aria-hidden="true" class="cv-body" id="projects-body">
+<div>
+<div class="cv-content">
+<div class="label" data-en="Projects">Proyectos</div>
+<div>
+<div class="reels supervised-projects-grid">
+<a aria-label="Ver Toon Blast" class="reel supervised-project" data-aria-en="View Toon Blast" data-aria-es="Ver Toon Blast" data-provider="youtube" data-thumb="https://img.youtube.com/vi/C2FqqsxfOc4/hqdefault.jpg" data-title="Toon Blast" data-video-id="C2FqqsxfOc4" href="https://www.youtube.com/watch?v=C2FqqsxfOc4" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/C2FqqsxfOc4?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=C2FqqsxfOc4&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Toon Blast"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Toon Blast</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Playstation" class="reel supervised-project" data-aria-en="View Playstation" data-aria-es="Ver Playstation" data-provider="youtube" data-thumb="https://img.youtube.com/vi/SIPk8u97JK0/hqdefault.jpg" data-title="Playstation" data-video-id="SIPk8u97JK0" href="https://www.youtube.com/watch?v=SIPk8u97JK0" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/SIPk8u97JK0?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=SIPk8u97JK0&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Playstation"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Playstation</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Stranger Things" class="reel supervised-project" data-aria-en="View Stranger Things" data-aria-es="Ver Stranger Things" data-provider="youtube" data-thumb="https://img.youtube.com/vi/MWjo2mrec_c/hqdefault.jpg" data-title="Stranger Things" data-video-id="MWjo2mrec_c" href="https://www.youtube.com/watch?v=MWjo2mrec_c" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/MWjo2mrec_c?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=MWjo2mrec_c&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Stranger Things"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Stranger Things</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver AXE" class="reel supervised-project" data-aria-en="View AXE" data-aria-es="Ver AXE" data-provider="youtube" data-thumb="https://img.youtube.com/vi/w1-0fKfxdyA/hqdefault.jpg" data-title="AXE" data-video-id="w1-0fKfxdyA" href="https://www.youtube.com/watch?v=w1-0fKfxdyA" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/w1-0fKfxdyA?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=w1-0fKfxdyA&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="AXE"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">AXE</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver E.l.f Cosmetics" class="reel supervised-project" data-aria-en="View E.l.f Cosmetics" data-aria-es="Ver E.l.f Cosmetics" data-provider="youtube" data-thumb="https://img.youtube.com/vi/YEPNf7dBekg/hqdefault.jpg" data-title="E.l.f Cosmetics" data-video-id="YEPNf7dBekg" href="https://www.youtube.com/watch?v=YEPNf7dBekg" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/YEPNf7dBekg?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=YEPNf7dBekg&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="E.l.f Cosmetics"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">E.l.f Cosmetics</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Spectrum" class="reel supervised-project" data-aria-en="View Spectrum" data-aria-es="Ver Spectrum" data-provider="vimeo" data-thumb="https://vumbnail.com/1147260491.jpg" data-title="Spectrum" data-video-id="1147260491" href="https://vimeo.com/1147260491" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://player.vimeo.com/video/1147260491?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;playsinline=1&amp;dnt=1" loading="lazy" title="Spectrum"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Spectrum</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Jack in the box" class="reel supervised-project" data-aria-en="View Jack in the box" data-aria-es="Ver Jack in the box" data-provider="youtube" data-thumb="https://img.youtube.com/vi/-5jYlKdkSVI/hqdefault.jpg" data-title="Jack in the box" data-video-id="-5jYlKdkSVI" href="https://www.youtube.com/shorts/-5jYlKdkSVI" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/-5jYlKdkSVI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=-5jYlKdkSVI&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Jack in the box"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Jack in the box</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Jack Link´s" class="reel supervised-project" data-aria-en="View Jack Link´s" data-aria-es="Ver Jack Link´s" data-provider="youtube" data-thumb="https://img.youtube.com/vi/HYDtKup7oHI/hqdefault.jpg" data-title="Jack Link´s" data-video-id="HYDtKup7oHI" href="https://www.youtube.com/watch?v=HYDtKup7oHI" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/HYDtKup7oHI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=HYDtKup7oHI&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Jack Link´s"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Jack Link´s</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Interceramic" class="reel supervised-project" data-aria-en="View Interceramic" data-aria-es="Ver Interceramic" data-provider="youtube" data-thumb="https://img.youtube.com/vi/gW9s7Iba3Vc/hqdefault.jpg" data-title="Interceramic" data-video-id="gW9s7Iba3Vc" href="https://www.youtube.com/watch?v=gW9s7Iba3Vc" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/gW9s7Iba3Vc?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=gW9s7Iba3Vc&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Interceramic"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Interceramic</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Doritos" class="reel supervised-project" data-aria-en="View Doritos" data-aria-es="Ver Doritos" data-provider="youtube" data-thumb="https://img.youtube.com/vi/MeaGg6GIU4o/hqdefault.jpg" data-title="Doritos" data-video-id="MeaGg6GIU4o" href="https://www.youtube.com/watch?v=MeaGg6GIU4o" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/MeaGg6GIU4o?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=MeaGg6GIU4o&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Doritos"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Doritos</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Herdez" class="reel supervised-project" data-aria-en="View Herdez" data-aria-es="Ver Herdez" data-provider="youtube" data-thumb="https://img.youtube.com/vi/_wcSeZc7obI/hqdefault.jpg" data-title="Herdez" data-video-id="_wcSeZc7obI" href="https://www.youtube.com/watch?v=_wcSeZc7obI" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/_wcSeZc7obI?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=_wcSeZc7obI&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Herdez"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Herdez</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Dupixent" class="reel supervised-project" data-aria-en="View Dupixent" data-aria-es="Ver Dupixent" data-provider="youtube" data-thumb="https://img.youtube.com/vi/kgXj1GA18dA/hqdefault.jpg" data-title="Dupixent" data-video-id="kgXj1GA18dA" href="https://www.youtube.com/watch?v=kgXj1GA18dA" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/kgXj1GA18dA?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=kgXj1GA18dA&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Dupixent"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Dupixent</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Walgreens" class="reel supervised-project" data-aria-en="View Walgreens" data-aria-es="Ver Walgreens" data-provider="youtube" data-thumb="https://img.youtube.com/vi/m3ueJFD2t4E/hqdefault.jpg" data-title="Walgreens" data-video-id="m3ueJFD2t4E" href="https://www.youtube.com/watch?v=m3ueJFD2t4E" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/m3ueJFD2t4E?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=m3ueJFD2t4E&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Walgreens"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Walgreens</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Jim Beam" class="reel supervised-project" data-aria-en="View Jim Beam" data-aria-es="Ver Jim Beam" data-provider="youtube" data-thumb="https://img.youtube.com/vi/TJVqppTP9T8/hqdefault.jpg" data-title="Jim Beam" data-video-id="TJVqppTP9T8" href="https://www.youtube.com/watch?v=TJVqppTP9T8" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/TJVqppTP9T8?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=TJVqppTP9T8&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Jim Beam"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Jim Beam</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Fiat" class="reel supervised-project" data-aria-en="View Fiat" data-aria-es="Ver Fiat" data-provider="vimeo" data-thumb="https://vumbnail.com/599244049.jpg" data-title="Fiat" data-video-id="599244049" href="https://vimeo.com/599244049?fl=pl&amp;fe=vl" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://player.vimeo.com/video/599244049?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;playsinline=1&amp;dnt=1" loading="lazy" title="Fiat"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Fiat</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Shiner" class="reel supervised-project" data-aria-en="View Shiner" data-aria-es="Ver Shiner" data-provider="vimeo" data-thumb="https://vumbnail.com/604424720.jpg" data-title="Shiner" data-video-id="604424720" href="https://vimeo.com/604424720" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://player.vimeo.com/video/604424720?background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;autopause=0&amp;controls=0&amp;playsinline=1&amp;dnt=1" loading="lazy" title="Shiner"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Shiner</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Kind" class="reel supervised-project" data-aria-en="View Kind" data-aria-es="Ver Kind" data-provider="youtube" data-thumb="https://img.youtube.com/vi/fRfvcXKK-k0/hqdefault.jpg" data-title="Kind" data-video-id="fRfvcXKK-k0" href="https://youtu.be/fRfvcXKK-k0" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/fRfvcXKK-k0?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=fRfvcXKK-k0&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Kind"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Kind</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+<a aria-label="Ver Stouffer´s" class="reel supervised-project" data-aria-en="View Stouffer´s" data-aria-es="Ver Stouffer´s" data-provider="youtube" data-thumb="https://img.youtube.com/vi/DA6Ir9qKTyw/hqdefault.jpg" data-title="Stouffer´s" data-video-id="DA6Ir9qKTyw" href="https://www.youtube.com/watch?v=DA6Ir9qKTyw" rel="noopener" target="_blank">
+<div aria-hidden="true" class="reel-video">
+<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" data-src="https://www.youtube-nocookie.com/embed/DA6Ir9qKTyw?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=DA6Ir9qKTyw&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Stouffer´s"></iframe>
+</div>
+<div class="reel-overlay">
+<div class="reel-top">
+<span class="reel-tag"><span class="live"></span><span data-en="Supervised Project">Proyecto supervisado</span></span>
+<span class="reel-cta"><span data-en="View project">Ver proyecto</span> <span class="arrow">↗</span></span>
+</div>
+<div class="reel-bottom">
+<div class="reel-title">Stouffer´s</div>
+<div class="reel-meta" data-en-html="VFX&lt;br/&gt;Supervision">Supervisión<br/>VFX</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ——— CONTACT ——— -->
+<section class="contact reveal" id="contact-form">
+<div class="contact-inner">
+<div class="contact-head">
+<div class="mono" data-en="07 — Contact" style="color:var(--ink-mute); padding-top:8px;">07 — Contacto</div>
+<div>
+<h2 class="serif" data-en-html="Tell me about your &lt;em&gt;project.&lt;/em&gt;">Cuéntame sobre tu <em>proyecto.</em></h2>
+<p data-en="Available for advertising direction, cinematic pieces, hybrid Live Action + AI workflows and fully generative productions. I personally respond to every message within 48 hours.">Disponible para dirección publicitaria, piezas cinematográficas, workflows híbridos Live Action + IA y producciones íntegramente generativas. Respondo personalmente cada mensaje en un plazo de 48 horas.</p>
+</div>
+</div>
+<div class="contact-info">
+<div class="ci">
+<span class="k" data-en="Email">Email</span>
+<span class="v"><a href="/cdn-cgi/l/email-protection#86ebefe1f3e3eae2e3eec6e1ebe7efeaa8e5e9eb"><span class="__cf_email__" data-cfemail="026f6b6577676e66676a42656f636b6e2c616d6f">[email protected]</span></a></span>
+</div>
+<div class="ci">
+<span class="k" data-en="Phone">Tel</span>
+<span class="v"><a href="tel:+525540651999">+52 55 4065 1999</a></span>
+</div>
+<div class="ci">
+<span class="k" data-en="Location">Ubicación</span>
+<span class="v"><a data-en="Mexico City, MX" href="https://maps.google.com/?q=Mexico+City" rel="noopener" target="_blank">Ciudad de México, MX</a></span>
+</div>
+</div>
+<form action="https://formsubmit.co/migueldeh@gmail.com" class="contact-form" id="mdh-form" method="POST">
+<!-- FormSubmit config -->
+<input name="_subject" type="hidden" value="Nuevo proyecto — miguelhoyos.com"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input id="f-next" name="_next" type="hidden" value=""/>
+<!-- honeypot -->
+<input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
+<div class="field">
+<label data-en="Name" for="f-name">Nombre</label>
+<input data-placeholder-en="Your full name" id="f-name" name="name" placeholder="Tu nombre completo" required="" type="text"/>
+<span class="field-row-bar"></span>
+</div>
+<div class="field">
+<label data-en="Email" for="f-email">Correo</label>
+<input data-placeholder-en="you@email.com" id="f-email" name="email" placeholder="tu@correo.com" required="" type="email"/>
+<span class="field-row-bar"></span>
+</div>
+<div class="field">
+<label data-en="Company / Agency" for="f-company">Empresa / Agencia</label>
+<input data-placeholder-en="Optional" id="f-company" name="company" placeholder="Opcional" type="text"/>
+<span class="field-row-bar"></span>
+</div>
+<div class="field">
+<label data-en="Project type" for="f-type">Tipo de proyecto</label>
+<select id="f-type" name="type" required="">
+<option data-en="Select an option" disabled="" selected="" value="">Selecciona una opción</option>
+<option data-en="Advertising piece" value="commercial">Pieza publicitaria</option>
+<option data-en="Film / Short" value="film">Cine / Cortometraje</option>
+<option data-en="Hybrid workflow (Live Action + AI)" value="hybrid">Workflow híbrido (Live Action + IA)</option>
+<option data-en="100% AI production" value="ai">Producción 100% IA</option>
+<option data-en="Virtual production / Unreal" value="unreal">Producción virtual / Unreal</option>
+<option data-en="Other" value="other">Otro</option>
+</select>
+<span class="field-row-bar"></span>
+</div>
+<div class="field full">
+<label data-en="Message" for="f-message">Mensaje</label>
+<textarea data-placeholder-en="Tell me briefly about the idea, scope and timeline." id="f-message" name="message" placeholder="Cuéntame brevemente sobre la idea, el alcance y los tiempos." required=""></textarea>
+<span class="field-row-bar"></span>
+</div>
+<div class="form-actions full">
+<p class="form-note mono" data-en="By submitting this form you agree to be contacted regarding your inquiry.">Al enviar este formulario aceptas ser contactado en relación a tu consulta.</p>
+<button class="submit" type="submit">
+<span data-en="Send message">Enviar mensaje</span>
+<span class="arrow">→</span>
+</button>
+</div>
+<div aria-live="polite" class="form-success" id="mdh-success" role="status">
+<strong data-en="Message sent.">Mensaje enviado.</strong>
+<span data-en="Thanks for writing. Miguel will personally respond within 48 hours.">Gracias por escribir. Miguel responderá personalmente en un plazo de 48 horas.</span>
+</div>
+</form>
+</div>
+</section>
+<footer>
+<div class="name">Miguel De Hoyos</div>
+<div class="links mono">
+<a data-en="Email" href="/cdn-cgi/l/email-protection#3e5357594b5b525a5b567e59535f5752105d5153">Email</a>
+<a href="https://vimeo.com/996029865" rel="noopener" target="_blank">Vimeo</a>
+<a href="https://imdb.com/name/nm4874594" rel="noopener" target="_blank">IMDb</a>
+<a data-en="Back to top" href="#top">Volver arriba</a>
+</div>
+<div class="mono" style="color:var(--ink-mute);">© MMXXVI</div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Nav background on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ——— Language switcher ———
+  const langButtons = document.querySelectorAll('.lang-toggle button');
+
+  // Capture original Spanish text for each element on first load
+  // so we can switch back without losing it.
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.dataset.es = el.textContent;
+  });
+  document.querySelectorAll('[data-en-html]').forEach(el => {
+    el.dataset.esHtml = el.innerHTML;
+  });
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.dataset.placeholderEs = el.placeholder;
+  });
+
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const v = el.getAttribute(lang === 'en' ? 'data-en' : 'data-es')
+              ?? el.dataset[lang === 'en' ? 'en' : 'es'];
+      if (v !== null && v !== undefined) el.textContent = v;
+    });
+    document.querySelectorAll('[data-en-html]').forEach(el => {
+      const v = lang === 'en' ? el.getAttribute('data-en-html') : el.dataset.esHtml;
+      if (v !== null && v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+      el.placeholder = lang === 'en' ? el.getAttribute('data-placeholder-en') : el.dataset.placeholderEs;
+    });
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    try { localStorage.setItem('mdh-lang', lang); } catch(e){}
+  }
+
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Restore preferred language
+  try {
+    const saved = localStorage.getItem('mdh-lang');
+    if (saved === 'en') setLang('en');
+  } catch(e){}
+
+  // CV reveal
+  const cvToggle = document.getElementById('cv-toggle');
+  const cvBody = document.getElementById('cv-body');
+  const cvLabel = cvToggle.querySelector('.cv-toggle-label');
+  cvToggle.addEventListener('click', () => {
+    const open = cvBody.classList.toggle('open');
+    cvToggle.classList.toggle('open', open);
+    cvToggle.setAttribute('aria-expanded', String(open));
+    cvBody.setAttribute('aria-hidden', String(!open));
+    cvLabel.textContent = open ? 'Cerrar CV' : 'Ver CV completo';
+  });
+
+
+  // Supervised projects reveal
+  const projectsToggle = document.getElementById('projects-toggle');
+  const projectsBody = document.getElementById('projects-body');
+  const projectsLabel = projectsToggle.querySelector('.cv-toggle-label');
+
+  function getCurrentLang(){
+    try { return localStorage.getItem('mdh-lang') === 'en' ? 'en' : 'es'; }
+    catch(e){ return document.documentElement.lang === 'en' ? 'en' : 'es'; }
+  }
+
+  function setProjectsToggleLabel(open){
+    const lang = getCurrentLang();
+    const key = open
+      ? (lang === 'en' ? 'openEn' : 'openEs')
+      : (lang === 'en' ? 'closedEn' : 'closedEs');
+    projectsLabel.textContent = projectsLabel.dataset[key];
+  }
+
+  projectsToggle.addEventListener('click', () => {
+    const open = projectsBody.classList.toggle('open');
+    projectsToggle.classList.toggle('open', open);
+    projectsToggle.setAttribute('aria-expanded', String(open));
+    projectsBody.setAttribute('aria-hidden', String(!open));
+    setProjectsToggleLabel(open);
+  });
+
+  langButtons.forEach(b => b.addEventListener('click', () => {
+    const isOpen = projectsBody.classList.contains('open');
+    setTimeout(() => setProjectsToggleLabel(isOpen), 0);
+    document.querySelectorAll('[data-aria-es][data-aria-en]').forEach(el => {
+      el.setAttribute('aria-label', b.dataset.lang === 'en' ? el.dataset.ariaEn : el.dataset.ariaEs);
+    });
+  }));
+
+
+  // Supervised project playback
+  // Desktop keeps the autoplaying grid. Mobile keeps the page light: thumbnails first, iframe only on tap/fullscreen.
+  const mobileProjectsQuery = window.matchMedia('(max-width: 820px), (pointer: coarse)');
+
+  function makeProjectIframe(project){
+    const existing = project.querySelector('iframe');
+    if (existing && existing.getAttribute('src')) return existing;
+
+    const videoWrap = project.querySelector('.reel-video');
+    const template = existing || project.querySelector('iframe[data-src]');
+    if (!videoWrap || !template) return null;
+
+    let iframe = template;
+    if (!iframe.parentElement) videoWrap.appendChild(iframe);
+
+    const src = iframe.dataset.src || iframe.getAttribute('data-src');
+    if (src && !iframe.getAttribute('src')) iframe.setAttribute('src', src);
+
+    const thumb = project.querySelector('.project-thumb, .project-thumb-fallback');
+    if (thumb) thumb.remove();
+    project.classList.add('is-mobile-video');
+    return iframe;
+  }
+
+  function makeProjectThumb(project){
+    const videoWrap = project.querySelector('.reel-video');
+    const iframe = project.querySelector('iframe');
+    if (!videoWrap || !iframe) return;
+
+    const src = iframe.getAttribute('src');
+    if (src) iframe.dataset.src = src;
+    iframe.removeAttribute('src');
+
+    if (!project.querySelector('.project-thumb, .project-thumb-fallback')){
+      const thumbUrl = project.dataset.thumb;
+      const thumb = document.createElement('div');
+      thumb.className = thumbUrl ? 'project-thumb' : 'project-thumb-fallback';
+      if (thumbUrl) thumb.style.backgroundImage = `url("${thumbUrl}")`;
+      else thumb.textContent = project.dataset.title || 'Project preview';
+      videoWrap.appendChild(thumb);
+    }
+  }
+
+  function setupSupervisedProjects(){
+    const isMobile = mobileProjectsQuery.matches;
+    document.querySelectorAll('.supervised-project').forEach(project => {
+      const iframe = project.querySelector('iframe');
+      if (!iframe) return;
+      if (isMobile) makeProjectThumb(project);
+      else makeProjectIframe(project);
+    });
+  }
+
+  setupSupervisedProjects();
+  mobileProjectsQuery.addEventListener?.('change', setupSupervisedProjects);
+
+  document.querySelectorAll('.supervised-project').forEach(project => {
+    project.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const isMobile = mobileProjectsQuery.matches;
+      const iframe = isMobile ? makeProjectIframe(project) : project.querySelector('iframe');
+      const fullscreenTarget = project;
+      try {
+        if (fullscreenTarget.requestFullscreen) {
+          await fullscreenTarget.requestFullscreen();
+        } else if (fullscreenTarget.webkitRequestFullscreen) {
+          fullscreenTarget.webkitRequestFullscreen();
+        }
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+      } catch(err) {
+        window.open(project.href, '_blank', 'noopener');
+      }
+    });
+  });
+
+  // Form — posts to FormSubmit.co (forwards to migueldeh@gmail.com)
+  // First submission triggers an "Activate Form" email; confirm once and it's live.
+  const form = document.getElementById('mdh-form');
+
+  // Set the _next redirect to bring users back to this same page with ?sent=1
+  const nextField = document.getElementById('f-next');
+  if (nextField){
+    const url = new URL(window.location.href);
+    url.searchParams.set('sent', '1');
+    url.hash = '#contact-form';
+    nextField.value = url.toString();
+  }
+  form.addEventListener('submit', (e) => {
+    const required = form.querySelectorAll('[required]');
+    let ok = true;
+    required.forEach(el => {
+      if (!el.value || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value))){
+        ok = false;
+        el.style.borderColor = 'var(--accent)';
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+    if (!ok){ e.preventDefault(); return; }
+    // disable submit to prevent double post
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn){ btn.disabled = true; btn.querySelector('span').textContent = 'Enviando…'; }
+  });
+
+  // If FormSubmit redirected back with ?sent=1, show success
+  if (new URLSearchParams(location.search).get('sent') === '1'){
+    const success = document.getElementById('mdh-success');
+    success.classList.add('show');
+    setTimeout(() => {
+      const rect = success.getBoundingClientRect();
+      window.scrollTo({ top: window.scrollY + rect.top - 120, behavior: 'smooth' });
+    }, 200);
+  }
+</script>
+</body>
+</html>
